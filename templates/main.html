@@ -32,7 +32,7 @@
   <div id="overlay" style="display:none;"></div>
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
-
+    
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
@@ -46,10 +46,10 @@
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
-
+      
     </div>
   </div>
-
+  
 
 	<div class="limiter">
 		<div class="container-login100">
@@ -65,7 +65,7 @@
 
 					<div class="wrap-input100" id="divshown">
 						<input class="input100" type="text" name="loginusername" placeholder="ERP Roll Number">
-
+						
 
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
@@ -76,16 +76,16 @@
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn" type="submit" onclick="getSecurityQues()">
 						Get Security Question
-						</button>
+						</button>						
 					</div>
 
 					<br/><br/>
 					<div class="wrap-input100" id="divwrite">
-
+						
 					</div>
 					<div class="wrap-input100" id="divshown">
 						<input class="input100" type="password" name="securityanswer" placeholder="Security Question's Answer">
-
+						
 
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
@@ -95,7 +95,7 @@
 					<div class="wrap-input100" id="divshown">
 
 						<input class="input100" type="password" name="loginpassword" placeholder="ERP Password">
-
+						
 
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
@@ -103,56 +103,18 @@
 						</span>
 					</div>
 					<div class="container-login100-form-btn">
-						<p id="instructions-timetable" style="color:red;">
-							Download timetable from erp
-						</p>
 						<button class="login100-form-btn" type="submit" onclick="login();">
 						Download ICS
-						</button>
+						</button>						
 					</div>
-
-					<!-- after timetable download -->
-					<div class="container-login100-form-btn">
-						<p id="instructions-next-step">
-							Add timetable to your google calendar
-						</p>
-						<a id="add-to-calendar" class="login100-form-btn" type="submit" target="_blank" href="https://calendar.google.com/calendar/r/settings/export?tab=wc" disabled>add to Google calendar</a>
-					</div>
-
+					
 					<div class="text-center p-t-136">
 						<a style="cursor: pointer;" class="txt2" target="_blank" href="https://metakgp.github.io/">
-							Maintained by MetaKGP with <span style="font-size:150%;color:red;">♥</span><a style="cursor: pointer;" target="_blank" href="https://github.com/metakgp/gyft-serve">at GitHub<img src="/static/assets/images/icons/github.png"/></a>
+							Maintained by MetaKGP with <span style="font-size:150%;color:red;">♥</span>
 						</a>
 					</div>
 					</form>
 
-			</div>
-			
-			<div class="wrap-info">
-				<button type="button" class="learn-more-btn">How to use downloaded ICS file?</button>
-				<div class="learn-more-content">
-					<br />
-					<h5>What in an ICS file?</h5>
-					<p>
-						An ICS file is a calendar file saved in a universal calendar format used by several email and calendar programs,
-						including Microsoft Outlook, Google Calendar, and Apple Calendar. It enables users to publish and share calendar information on the web and over email.
-						ICS files are often used for sending meeting requests to other users, who can import the events into their own calendars.
-					</p>
-					<br />
-					<h5>How to add ICS file to your calendar?</h5>
-					<p>
-						An ICS file can be added to a lot of calendars other Google calendar. The following points are links to few of those calendars,but don't worry if you
-						don't find your favourite calendar here, trying searching for it.
-						<ul>
-							<li>
-								<a style="cursor: pointer; font-weight: bold; font-size: 15px;" target="_blank" href="https://support.microsoft.com/en-us/office/import-or-subscribe-to-a-calendar-in-outlook-com-cff1429c-5af6-41ec-a5b4-74f2c278e98c">Outlook</a>
-							</li>
-							<li>
-								<a style="cursor: pointer; font-weight: bold; font-size: 15px;" target="_blank" href="https://support.apple.com/en-in/guide/calendar/icl1023/mac">Apple Calendar</a>
-							</li>
-						</ul>
-					</p>
-				</div>
 			</div>
 		</div>
 	</div>
@@ -197,14 +159,6 @@
 	  document.body.removeChild(element);
 	}
 	var temp = "";
-
-	// function for enabling link to google calendar and colouring of instructions
-
-	function enableButton(){
-		$('#add-to-calendar').removeAttr('disabled');
-		$('#instructions-timetable').removeAttr('style');
-		$('#instructions-next-step').css('color', 'red');
-	}
 		var login = function() {
 			$('#loading').show();
 			// console.log("call ho raha ")
@@ -220,7 +174,7 @@
 			data.append('sessionToken', results[1])
 			// data.append('password', password)
 			// var url = 'http://localhost:5000/login'
-			// console.log(data, username, security_answer, results[1])
+			// console.log(data, username, security_answer, results[1]) 
 			var url = "{{url_for('user')}}"
 			var request = new XMLHttpRequest()
 			request.open("POST", url , true)
@@ -239,7 +193,7 @@
 					else if (this.responseText == "wrong credentials") {
 			    		alert("The entered credentials are wrong. Try again!");
 					}
-
+			    	
 			    	// window.open("http://localhost:5000/", "_self");
 			    	window.open("{{url_for('homepage')}}", "_self");
 			    }
@@ -248,8 +202,6 @@
 			    	t = eval(this.responseText)
 			    	temp = t[0];
 			   		download("Timetable.ics", t[0]);
-
-						enableButton();
 			    }
 				$('#loading').hide();
 			};
@@ -275,7 +227,7 @@
 			request.open("POST", url , true)
 			request.onload = function () {
 
-
+    
     // console.log (this.responseText);
     		// do something to response
 		    if (this.responseText == "error occured"){
@@ -295,20 +247,6 @@ $(window).ready(function() {
     $('#loading').hide();
 });
 
-	var coll = document.getElementsByClassName("learn-more-btn");
-	var i;
-
-	for (i = 0; i < coll.length; i++) {
-		coll[i].addEventListener("click", function() {
-			this.classList.toggle("active");
-			var content = this.nextElementSibling;
-			if (content.style.maxHeight){
-				content.style.maxHeight = null;
-			} else {
-				content.style.maxHeight = content.scrollHeight + "px";
-			}
-		});
-	}
 
 	</script>
 </html>

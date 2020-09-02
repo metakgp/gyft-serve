@@ -194,57 +194,7 @@ iframe {
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 177px 130px 33px 95px;
-  position: relative;
 }
-/*//////////////////////////////////////////////////////////////////
-[ more info ]*/
-
-.wrap-info {
-  width: 960px;
-  background-color: #fff;
-  border-radius: 10px;
-  overflow: hidden;
-
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 10px 10px 10px 10px;
-  position: relative;
-  margin-top: 2em;
-}
-
-.wrap-info:hover{
-  background-color: #e3e3e3;
-}
-
-.learn-more-btn{
-  width: 100%;
-  cursor: pointer;
-  border: none;
-  text-align: left;
-  outline: none;
-}
-
-.learn-more-btn::after {
-  content: "\25BC";
-  float: right;
-}
-
-.active::after {
-  content: "\25B4"
-}
-
-.learn-more-content{
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.2s ease-out;
-  padding: 0;
-}
-
 
 /*------------------------------------------------------------------
 [  ]*/
@@ -407,11 +357,6 @@ iframe {
   background: #333333;
 }
 
-#add-to-calendar[disabled]{
-  opacity: .4;
-  cursor: default !important;
-  pointer-events: none;
-}
 
 
 /*------------------------------------------------------------------
